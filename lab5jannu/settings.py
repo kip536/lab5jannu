@@ -83,7 +83,7 @@ WSGI_APPLICATION = "lab5jannu.wsgi.application"
 DATABASES = {
     'default': dj_database_url.config(
         # Feel free to alter this value to suit your needs.
-        default='postgresql://postgres:postgres@localhost:5432/mysite',
+        default='postgres://lab5_blogpost_app_db_user:Go2o39lrx6UYaucuNP4zObUoM3ebxawL@dpg-clmgo89fb9qs739de57g-a.oregon-postgres.render.com/lab5_blogpost_app_db',
         conn_max_age=600
     )
 }
