@@ -1,0 +1,11 @@
+{% extends "nav.html" %}
+
+{% block content %}
+
+<h1>Comment post</h1>
+    <form method="Post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>Comment</button>
+
+{% endblock %}

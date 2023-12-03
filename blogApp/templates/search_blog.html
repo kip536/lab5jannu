@@ -1,0 +1,20 @@
+{% extends "nav.html" %}
+
+{% block content %}
+    <center>
+        {% if blog %}
+            <h2>Search results for {{ blog }}:</h2>
+            <h3><u>Title results</u></h3>
+            {% for results in blogs %}
+                <li><a href="{% url 'article-detail' results.pk %}">{{ results }}</a></li>
+            {% endfor %}
+            <br>
+            <h3><u>Body results</u></h3>
+            {% for content in blogbody %}
+                <li><a href="{% url 'article-detail' content.pk %}">{{ content }}</a></li>
+            {% endfor %}
+        {% else %}
+            <h2>oops! No results found</h2>
+        {% endif %}
+    </center>
+{% endblock %}

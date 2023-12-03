@@ -1,0 +1,12 @@
+{% extends "nav.html" %}
+
+{% block content %}
+
+<h1>Update post</h1>
+
+<form method="Post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button>Update</button>
+
+{% endblock %}
