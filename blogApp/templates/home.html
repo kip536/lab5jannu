@@ -3,22 +3,30 @@
 {% block content %}
 
 <h1>Posts</h1>
+
 <a href='{% url 'createPost' %}'>Create new post</a>
 <ul>
-{% for post in object_list %}
-    <li><a href="{% url 'article-detail' post.pk %}">{{ post.title }}</a>
-    {{ post.body }}
-    {{ post.author }}
-    {{ post.created_at }}</li>
+    <div class="card">
+        <div class="card-header">
+            <i>author: </i>{{ post.author }} <i>date</i>{{ post.created_at }}
+        </div>
+        <div class="card-body">
+            {% for post in object_list %}
+                <li><a href="{% url 'article-detail' post.pk %}"><h5 class="card-title">{{ post.title }}</h5></a>
+                <p class="card-text">{{ post.body }}</p>
+                
+                </li>
 
-    {% if user.is_authenticated %}
-        {% if user.id == post.author.id %}
-            <a href="{% url 'update_post' post.pk %}">Edit</a>
-            <a href="{% url 'delete_post' post.pk %}">Delete</a>
-        {% endif %}
-    {% endif %}
+                {% if user.is_authenticated %}
+                    {% if user.id == post.author.id %}
+                        <a class="btn btn-primary" href="{% url 'update_post' post.pk %}">Edit</a>
+                        <a class="btn btn-danger" href="{% url 'delete_post' post.pk %}">Delete</a>
+                    {% endif %}
+                {% endif %}
 
-{% endfor %}
+            {% endfor %}
+        </div>
+    </div>
 </ul>
 
 {% endblock %}
