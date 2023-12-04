@@ -10,7 +10,7 @@
             {% for post in object_list %}
             <div class="card">
                 <div class="card-header">
-                    <i>author: </i>{{ post.author }} <i>date</i>{{ post.created_at }}
+                    <i>author: </i>{{ post.author }} <i>date: </i>{{ post.created_at }}
                 </div>
                 <div class="card-body">
                 <li><a href="{% url 'article-detail' post.pk %}"><h5 class="card-title">{{ post.title }}</h5></a>
